@@ -1,8 +1,8 @@
-package com.benjamin;
+package com.benjamin.misc;
 
 import java.util.Random;
 
-import static com.benjamin.Print.print;
+import static com.benjamin.misc.Print.print;
 
 /**
  * Created by Ben Li.

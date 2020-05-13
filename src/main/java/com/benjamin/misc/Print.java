@@ -1,4 +1,4 @@
-package com.benjamin;
+package com.benjamin.misc;
 
 /**
  * Created by Ben Li.
