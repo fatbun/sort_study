@@ -2,6 +2,8 @@ package com.benjamin.sorter;
 
 import com.benjamin.misc.ArrayGenerator;
 
+import java.util.Arrays;
+
 import static com.benjamin.misc.Print.print;
 
 /**
@@ -15,7 +17,9 @@ import static com.benjamin.misc.Print.print;
 public class BubbleSort {
     final static int LENGTH = 15;
 
-    public static void sort(int[] arrays) {
+    public static void sort(int[] input) {
+        int[] arrays = Arrays.copyOf(input,
+                input.length);
 
         // 定义外层循环指针
         for (int loopIndex = 0; loopIndex < arrays.length; loopIndex++) {
@@ -36,12 +40,13 @@ public class BubbleSort {
                 }
             }
         }
+
+        print(arrays);
     }
 
     public static void main(String[] args) {
         // 随机生成数组
         int[] arrays = ArrayGenerator.generate(LENGTH);
         sort(arrays);
-        print(arrays);
     }
 }
