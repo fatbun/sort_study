@@ -12,7 +12,7 @@ import static com.benjamin.Print.print;
  * <p>
  * 两个for循环，第一个for循环用于标记遍历最大的次数，第二个for循环用于选取最小的值
  */
-public class BubbleSort {
+public class SelectionSort {
     final static int LENGTH = 15;
 
     public static void sort(int[] arrays) {
