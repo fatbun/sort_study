@@ -1,6 +1,7 @@
-package com.benjamin.sorter;
+package com.benjamin.sorter.impl;
 
 import com.benjamin.misc.ArrayGenerator;
+import com.benjamin.sorter.Sort;
 
 import java.util.Arrays;
 
@@ -17,11 +18,12 @@ import static com.benjamin.misc.Print.print;
  *      递归：基于分区的概念，直到找到最小区域的分区（区域里值的数量大小为1），才开始做合并排序操作
  *
  */
-public class MergeSort {
+public class MergeSort implements Sort {
 
     final static int LENGTH = 15;
 
-    public static Integer[] sort(Integer[] input) {
+    @Override
+    public  Integer[] sort(Integer[] input) {
         return partition(input);
     }
 
@@ -120,9 +122,10 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
+        Sort sorter = new MergeSort();
         // 随机生成数组
         Integer[] arrays = ArrayGenerator.generate(LENGTH);
         print(() -> arrays);
-        print(() -> sort(arrays));
+        print(() -> sorter.sort(arrays));
     }
 }

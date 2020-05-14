@@ -1,6 +1,7 @@
-package com.benjamin.sorter;
+package com.benjamin.sorter.impl;
 
 import com.benjamin.misc.ArrayGenerator;
+import com.benjamin.sorter.Sort;
 
 import java.util.Arrays;
 
@@ -14,10 +15,11 @@ import static com.benjamin.misc.Print.print;
  * <p>
  * 左边序列认为是有序序列，右边元素依次向左边比较，遇到第一个比自己小的值前插入
  */
-public class InsertionSort {
+public class InsertionSort implements Sort {
     final static int LENGTH = 15;
 
-    public static Integer[] sort(Integer[] input) {
+    @Override
+    public Integer[] sort(Integer[] input) {
         Integer[] arrays = Arrays.copyOf(input,
                 input.length);
 
@@ -51,10 +53,11 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
+        Sort sorter = new InsertionSort();
         // 随机生成数组
         Integer[] arrays = ArrayGenerator.generate(LENGTH);
         print(() -> arrays);
-        print(() -> sort(arrays));
+        print(() -> sorter.sort(arrays));
     }
 
 }

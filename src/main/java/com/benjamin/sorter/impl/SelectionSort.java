@@ -1,6 +1,7 @@
-package com.benjamin.sorter;
+package com.benjamin.sorter.impl;
 
 import com.benjamin.misc.ArrayGenerator;
+import com.benjamin.sorter.Sort;
 
 import java.util.Arrays;
 
@@ -14,10 +15,11 @@ import static com.benjamin.misc.Print.print;
  * <p>
  * 两个for循环，第一个for循环用于标记遍历最大的次数，第二个for循环用于选取最小的值
  */
-public class SelectionSort {
+public class SelectionSort implements Sort {
     final static int LENGTH = 15;
 
-    public static Integer[] sort(Integer[] input) {
+    @Override
+    public Integer[] sort(Integer[] input) {
         Integer[] arrays = Arrays.copyOf(input,
                 input.length);
 
@@ -42,9 +44,10 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
+        Sort sorter = new SelectionSort();
         // 随机生成数组
         Integer[] arrays = ArrayGenerator.generate(LENGTH);
         print(() -> arrays);
-        print(() -> sort(arrays));
+        print(() -> sorter.sort(arrays));
     }
 }
