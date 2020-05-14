@@ -17,8 +17,8 @@ import static com.benjamin.misc.Print.print;
 public class BubbleSort {
     final static int LENGTH = 15;
 
-    public static void sort(int[] input) {
-        int[] arrays = Arrays.copyOf(input,
+    public static Integer[] sort(Integer[] input) {
+        Integer[] arrays = Arrays.copyOf(input,
                 input.length);
 
         // 定义外层循环指针
@@ -41,12 +41,13 @@ public class BubbleSort {
             }
         }
 
-        print(arrays);
+        return arrays;
     }
 
     public static void main(String[] args) {
         // 随机生成数组
-        int[] arrays = ArrayGenerator.generate(LENGTH);
-        sort(arrays);
+        Integer[] arrays = ArrayGenerator.generate(LENGTH);
+        print(() -> arrays);
+        print(() -> sort(arrays));
     }
 }

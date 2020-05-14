@@ -16,23 +16,21 @@ public class ArrayGenerator {
      * @param length 数组长度
      * @return
      */
-    public static int[] generate(int length) {
+    public static Integer[] generate(int length) {
         Random r = new Random();
 
         // 新增数组
-        int[] arrays = new int[length];
+        Integer[] arrays = new Integer[length];
         // 初始化数组
         for (int i = 0; i < length; i++) {
             int next = r.nextInt(100);
             arrays[i] = next;
         }
 
-        print(arrays);
-
         return arrays;
     }
 
     public static void main(String[] args) {
-        int[] arrays = generate(10);
+        Integer[] arrays = generate(10);
     }
 }
