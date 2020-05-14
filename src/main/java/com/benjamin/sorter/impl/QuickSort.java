@@ -71,7 +71,7 @@ public class QuickSort implements Sort {
      *
      * @param arrays
      */
-    public ResortPojo resort(Integer[] arrays) {
+    private ResortPojo resort(Integer[] arrays) {
         Integer[] sorted = new Integer[arrays.length];
         // 左指针，指向数组首位
         int leftIndex = 0;
@@ -115,7 +115,7 @@ public class QuickSort implements Sort {
      * @param pivotValue 基准值
      * @return
      */
-    public Integer[] merge(Integer[] left, Integer[] right, int pivotValue) {
+    private Integer[] merge(Integer[] left, Integer[] right, int pivotValue) {
         Integer[] sorted = new Integer[left.length + right.length + 1];
 
         // 添加左数组到sorted
