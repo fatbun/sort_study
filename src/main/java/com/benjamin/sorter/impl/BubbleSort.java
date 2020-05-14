@@ -18,6 +18,7 @@ import static com.benjamin.misc.Print.print;
 public class BubbleSort implements Sort {
     final static int LENGTH = 15;
 
+    @Override
     public Integer[] sort(Integer[] input) {
         Integer[] arrays = Arrays.copyOf(input,
                 input.length);

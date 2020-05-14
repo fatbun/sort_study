@@ -11,9 +11,9 @@ public class Print {
 
     public static void print(Supplier<Integer[]> supplier) {
 
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         Integer[] sorted = supplier.get();
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
 
         System.out.print("arrays：" + Arrays.asList(sorted));
         System.out.println(" 耗时：" + (endTime - startTime));

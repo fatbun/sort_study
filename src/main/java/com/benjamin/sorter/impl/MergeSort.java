@@ -33,7 +33,7 @@ public class MergeSort implements Sort {
      * @param arrays
      * @return
      */
-    private static Integer[] partition(Integer[] arrays) {
+    private Integer[] partition(Integer[] arrays) {
         if (arrays.length <= 1) {
             return arrays;
         }
@@ -64,7 +64,7 @@ public class MergeSort implements Sort {
      * @param right 约定传入，有序右数组
      * @return
      */
-    private static Integer[] merge(Integer[] left, Integer[] right) {
+    private Integer[] merge(Integer[] left, Integer[] right) {
         // 有序数组大小 = 做数组长度 + 右数组长度
         Integer[] sorted = new Integer[left.length + right.length];
 
