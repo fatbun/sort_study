@@ -27,16 +27,97 @@ public class HeapSort implements Sort {
         Integer[] sorted = new Integer[arrays.length];
         int index = arrays.length - 1;
 
-        for (int i = 0; i < arrays.length; i++) {
-            // 排序：大根堆形状
-            resort(arrays);
-            // 最大值
-            int rootValue = arrays[0];
-            // 从数组最后开始往前放
-            sorted[index--] = rootValue;
-        }
+        // 排序：大根堆形状
+        resort(arrays);
+        // 调整根节点位置
+        adjust(arrays);
 
         return sorted;
+    }
+
+    /**
+     * 调整大根堆
+     * 1、把根节点与最后一个子节点交换
+     * 2、交换后，根节点与（最大的子节点）比较
+     * -    若根节点">="子节点，完成，跳出循环
+     * -    若根节点"<"子节点，交换
+     *
+     * @param arrays 大根堆数组
+     */
+    private void adjust(Integer[] arrays) {
+        for (int lastIndex = arrays.length - 1; lastIndex > 0; lastIndex--) {
+            // 把根节点与末尾节点交换（把最大值放数组尾部）
+            swap(0,
+                    lastIndex,
+                    arrays);
+            // 根节点开始找自己的位置
+            sortRoot(lastIndex,
+                    arrays);
+
+        }
+    }
+
+    /**
+     * 根节点找自己的位置
+     *
+     * @param lastIndex
+     * @param arrays
+     */
+    private void sortRoot(int lastIndex, Integer[] arrays) {
+        // 头结点指针
+        int rootIndex = 0;
+        // 有子节点
+        while (hasSon(rootIndex,
+                lastIndex)) {
+            // 左子节点
+            int left = rootIndex * 2 + 1;
+            // 右子节点
+            int right = left + 1;
+            // 有左右节点
+            if (left <= lastIndex && right <= lastIndex) {
+                // 与大的那个节点交换
+                if (arrays[left] < arrays[right]) {
+                    swap(rootIndex,
+                            right,
+                            arrays);
+                    rootIndex = right;
+                } else {
+                    swap(rootIndex,
+                            left,
+                            arrays);
+                    rootIndex = left;
+                }
+            }
+            // 只有左节点
+            else if (left <= lastIndex) {
+                swap(rootIndex,
+                        left,
+                        arrays);
+                rootIndex = left;
+            }
+
+        }
+    }
+
+    /**
+     * 是否有子节点
+     *
+     * @param rootIndex 父节点
+     * @param lastIndex 末节点
+     * @return
+     */
+    private boolean hasSon(int rootIndex, int lastIndex) {
+        // 左子节点
+        int left = 2 * rootIndex + 1;
+        // 右子节点
+        int right = left + 1;
+
+        // 左右子节点均大于末节点
+        if (left > lastIndex && right > lastIndex) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
